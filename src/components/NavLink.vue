@@ -1,10 +1,13 @@
+<!-- composant enfant -->
+
 <template>
-    <a href="/">Accueil</a>
+    <a :href="url">{{ text }}</a>
 </template>
 
 <script>
 export default {
-    name: 'HomeLink'
+    name: 'NavLink',
+    props: ['url', 'text']
 }
 </script>
 
