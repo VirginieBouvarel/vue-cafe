@@ -1,5 +1,3 @@
-<!-- composant enfant -->
-
 <template>
     <a :href="url">{{ text }}</a>
 </template>
@@ -14,5 +12,6 @@ export default {
 <style>
 a {
     text-decoration:none;
+    margin:1rem;
 }
 </style>
