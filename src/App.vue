@@ -8,25 +8,17 @@
 				difficile de s'arrêter.
 			</p>
 
-            <section class="menu">
-				<h2>Menu</h2>
-				<!-- <div class="menu-item" v-for="item in simpleMenu">
-					<img
-						class="menu-item__image"
-						:src="item.image.source"
-						:alt="item.image.alt"
-					/>
-					<div>
-						<h3>{{ item.name }}</h3>
-						<p v-if="item.inStock">En stock</p>
-						<p v-else>En rupture de stock</p>
-						<div>
-							<label for="add-item-quantity">Quantité : {{ item.quantity }}</label>
-							<input id="add-item-quantity" type="number" v-model="item.quantity" />
-							<button @click="addToShoppingCart(item.quantity)">Ajouter au panier d'achat</button>
-						</div>
-					</div>
-				</div> -->
+      <section class="menu">
+        <h2>Menu</h2>
+        <MenuItem 
+          v-for="item in simpleMenu"
+          :key="item.name"
+          :name="item.name"
+          :image="item.image"
+          :quantityInStock="item.quantity"
+          :inStock="item.inStock"
+          :addToShoppingCart="addToShoppingCart"
+        />
 			</section>
 
 			<aside class="shopping-cart">
@@ -51,13 +43,13 @@
 </template>
 
 <script>
-// import NavLink from './components/NavLink.vue'
+import MenuItem from './components/MenuItem'
 
 export default {
   name: 'App',
-  // components: {
-  
-  // },
+  components: {
+    MenuItem,
+  },
   data() {
     return {
       restaurantName: "Café avec Vue",
@@ -67,31 +59,31 @@ export default {
       itemsInCart:0,
       simpleMenu: [
         {
-        name: "Croissant",
-        image: {
-          source: "img/croissant.jpg",
-          alt: "Un croissant"
-        },
-        inStock: true,
-        quantity: 10
-        },
-        {
-        name: "Baguette de pain",
-        image: {
-          source: "img/french-baguette.jpeg",
-          alt: "Quatre baguettes de pain"
-        },
-        inStock: true,
-        quantity: 9
+          name: "Croissant",
+          image: {
+            src: "img/croissant.jpg",
+            alt: "Un croissant"
+          },
+          inStock: true,
+          quantity: 1
         },
         {
-        name: "Éclair",
-        image: {
-          source: "img/eclair.jpg",
-          alt: "Éclair au chocolat"
+          name: "Baguette de pain",
+          image: {
+            src: "img/french-baguette.jpeg",
+            alt: "Quatre baguettes de pain"
+          },
+          inStock: true,
+          quantity: 1
         },
-        inStock: false,
-        quantity: 8
+        {
+          name: "Éclair",
+          image: {
+            src: "img/eclair.jpg",
+            alt: "Éclair au chocolat"
+          },
+          inStock: false,
+          quantity: 1
         }
       ],
     }
