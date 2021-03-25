@@ -34,6 +34,17 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.menu-item {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  &__image {
+  max-width: 300px;
+}
+}
+
 
 </style>
