@@ -9,7 +9,7 @@
             <div>
                 <label for="add-item-quantity">Quantité : {{ quantity }}</label>
                 <input id="add-item-quantity" type="number" v-model.number="quantity">
-                <button @click="addToShoppingCart(quantity)">Ajouter au panier</button>
+                <button @click="updateShoppingCart(quantity)">Ajouter au panier</button>
             </div>
         </div>
     </div>
@@ -18,11 +18,37 @@
 <script>
 export default {
     name: 'MenuItem',
-    props: ['image','name', 'inStock', 'quantityInitial', 'priceInitial', 'addToShoppingCart'],
+    props: {
+        image: {
+            type:Object,
+            required: true
+        },
+        name: {
+            type:String,
+            required: true
+        },
+        inStock:{
+            type:Boolean,
+            required: true
+        },
+        quantityInitial:{
+            type:Number,
+            default:1
+        },
+        priceInitial:{
+            type:Number,
+            required: true
+        }
+        },
     data() {
         return {
             quantity: this.quantityInitial,
             price: this.priceInitial,
+        }
+    },
+    methods: {
+        updateShoppingCart(quantity) {
+            this.$emit('add-items-to-cart', quantity);
         }
     },
     beforeMount() {

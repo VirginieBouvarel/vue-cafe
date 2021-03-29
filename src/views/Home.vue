@@ -18,7 +18,7 @@
           :quantityInitial="item.quantity"
           :priceInitial="item.price"
           :inStock="item.inStock"
-          :addToShoppingCart="addToShoppingCart"
+          @add-items-to-cart="addToShoppingCart"
         />
 			</section>
 
