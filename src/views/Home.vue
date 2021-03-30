@@ -18,7 +18,6 @@
           :quantityInitial="item.quantity"
           :priceInitial="item.price"
           :inStock="item.inStock"
-          @add-items-to-cart="addToShoppingCart"
         />
 			</section>
 
@@ -35,59 +34,21 @@
 <script>
 // @ is an alias to /src
 import MenuItem from '@/components/MenuItem'
+import { mapState, mapGetters } from 'vuex'
+
 
 export default {
   name: 'Home',
   components: {
     MenuItem
   },
-  data() {
-    return {
-      restaurantName: "Café avec Vue",
-      itemsInCart:0,
-      simpleMenu: [
-        {
-          name: "Croissant",
-          image: {
-            src: "img/croissant.jpg",
-            alt: "Un croissant"
-          },
-          inStock: true,
-          quantity: 1,
-          price: 2.5
-        },
-        {
-          name: "Baguette de pain",
-          image: {
-            src: "img/french-baguette.jpeg",
-            alt: "Quatre baguettes de pain"
-          },
-          inStock: true,
-          quantity: 1,
-          price: 0.8
-        },
-        {
-          name: "Éclair",
-          image: {
-            src: "img/eclair.jpg",
-            alt: "Éclair au chocolat"
-          },
-          inStock: false,
-          quantity: 1,
-          price: 1.75
-        }
-      ],
-    }
-  },
   computed: {
-    getCurrentYear() {
-      return new Date().getFullYear();
-    }
-  },
-  methods: {
-    addToShoppingCart(number) {
-      this.itemsInCart += number;
-    },
+    ...mapState({
+        restaurantName: 'restaurantName',
+        simpleMenu: 'simpleMenu',
+        itemsInCart: 'itemsInCart'
+    }),
+    ...mapGetters(['getCurrentYear'])
   },
 }
 </script>

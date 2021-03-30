@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
+
 export default {
     name: 'MenuItem',
     props: {
@@ -47,9 +49,7 @@ export default {
         }
     },
     methods: {
-        updateShoppingCart(quantity) {
-            this.$emit('add-items-to-cart', quantity);
-        }
+        ...mapActions(["updateShoppingCart"])
     },
     beforeMount() {
         const dateOfTheDay = new Date().getDate();
