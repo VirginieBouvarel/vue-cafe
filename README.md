@@ -1,24 +1,10 @@
-# vuejs-first-project
+### Live version [here](https://vue-cafe.vercel.app/#/).
 
-## Project setup
-```
-npm install
-```
+# Vue café
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Détails
 
-### Compiles and minifies for production
-```
-npm run build
-```
+> Technos utilisées : HTML/CSS/JS/Vue.js
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Projet réalisé dans le cadre du tutoriel OpenClassrooms :
+"Créez une application web avec Vue.js", pour découvrir les bases du framework.
